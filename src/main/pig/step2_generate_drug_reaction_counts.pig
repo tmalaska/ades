@@ -100,4 +100,5 @@ final = FOREACH actual_expected_group GENERATE group.d1 as d1, group.d2 as d2,
     group.reac as reac, SUM(actual_expected.actual) as actual,
     SUM(actual_expected.expected) as expected;
 
+STORE total_d1d2r INTO 'aers/total_d1d2r' USING PigStorage('$');
 STORE final INTO 'aers/drugs2_reacs_actual_expected' USING PigStorage('$');

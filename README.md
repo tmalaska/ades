@@ -37,6 +37,7 @@ If you have not done so already, load the input data into the Hadoop cluster:
 	hdfs dfs -mkdir aers/reactions
 	hdfs dfs -put REAC*.TXT aers/reactions
 
+##Run Option 1 - Original
 Each of these commands should be run from the project's top-level directory,
 i.e., the directory that contains this README file.
 
@@ -44,6 +45,16 @@ i.e., the directory that contains this README file.
 	pig -f src/main/pig/step1_join_drugs_reactions.pig
 	pig -f src/main/pig/step2_generate_drug_reaction_counts.pig
 	pig -f src/main/pig/step3_generate_squashed_distribution.pig
+
+##Run Option 2 - Faster
+Each of these commands should be run from the project's top-level directory,
+i.e., the directory that contains this README file.
+
+       mvn package
+       pig -f src/main/pig/step_fast_1_join_drugs_reactions.pig
+       hadoop jar ./target/ades-0.1.0-jar-with-dependencies.jar com.cloudera.science.mapreduce.GenerateDrugReactionDailyCounts aers/strat_drugs1_reacs aers/total_d1d2r 2
+       pig -f src/main/pig/step_fast_2_generate_drug_reaction_counts.pig
+       pig -f src/main/pig/step3_generate_squashed_distribution.pig
 
 At this point, you can optionally run the R code to solve the MGPS
 optimization problem. You will need to install the _BB_ library in your
