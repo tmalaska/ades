@@ -37,7 +37,7 @@ If you have not done so already, load the input data into the Hadoop cluster:
 	hdfs dfs -mkdir aers/reactions
 	hdfs dfs -put REAC*.TXT aers/reactions
 
-##Run Option 1 - Original
+###Run Option 1 - Original
 Each of these commands should be run from the project's top-level directory,
 i.e., the directory that contains this README file.
 
@@ -46,7 +46,7 @@ i.e., the directory that contains this README file.
 	pig -f src/main/pig/step2_generate_drug_reaction_counts.pig
 	pig -f src/main/pig/step3_generate_squashed_distribution.pig
 
-##Run Option 2 - Faster
+###Run Option 2 - Faster
 Each of these commands should be run from the project's top-level directory,
 i.e., the directory that contains this README file.
 
@@ -56,6 +56,7 @@ i.e., the directory that contains this README file.
        pig -f src/main/pig/step_fast_2_generate_drug_reaction_counts.pig
        pig -f src/main/pig/step3_generate_squashed_distribution.pig
 
+### Run R MGPS Code
 At this point, you can optionally run the R code to solve the MGPS
 optimization problem. You will need to install the _BB_ library in your
 local version of R using _install.packages("BB")_ if you do not have it already.
