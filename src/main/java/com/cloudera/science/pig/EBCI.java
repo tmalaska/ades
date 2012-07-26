@@ -15,7 +15,7 @@
  */
 package com.cloudera.science.pig;
 
-import java.io.IOException; 
+import java.io.IOException;
 
 import org.apache.commons.math.ConvergenceException;
 import org.apache.commons.math.FunctionEvaluationException;
@@ -134,7 +134,7 @@ public class EBCI extends EvalFunc<Double> {
       e1.printStackTrace();
     } catch (RuntimeException e1)
     {
-    	//MathRuntimeException function values at endpoints do not have different signs 
+    	//MathRuntimeException function values at endpoints do not have different signs
     	e1.printStackTrace();
 		
     }

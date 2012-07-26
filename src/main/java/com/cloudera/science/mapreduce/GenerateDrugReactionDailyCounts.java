@@ -224,7 +224,8 @@ public class GenerateDrugReactionDailyCounts {
 					{
 						String d2 = drugsPerIsrPerReacArray[j];
 						
-						String d1d2Key = d1.compareTo(d2)>0?d1+"$"+d2:d2+"$"+d1;
+						//make sure the drug compbo is always in the same order.
+						String d1d2Key = d1.compareTo(d2)<0?d1+"$"+d2:d2+"$"+d1;
 						
 						Counter counter = d1d2PerReacPerGroupMap.get(d1d2Key);
 						if (counter == null)

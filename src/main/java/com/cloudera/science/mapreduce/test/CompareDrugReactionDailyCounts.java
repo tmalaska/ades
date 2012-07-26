@@ -19,7 +19,7 @@ import com.cloudera.science.mapreduce.GenerateDrugReactionDailyCounts;
 public class CompareDrugReactionDailyCounts 
 {
 
-	public static Pattern pipeSplit = Pattern.compile("\\$");
+	public static Pattern dollarSplit = Pattern.compile("\\$");
 	
 	public static class CustomMapper extends Mapper<LongWritable, Text, Text, Text>
 	{
@@ -42,7 +42,7 @@ public class CompareDrugReactionDailyCounts
 		
 		public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException
 		{
-			String[] columns = pipeSplit.split(value.toString());
+			String[] columns = dollarSplit.split(value.toString());
 			
 			try
 			{	
